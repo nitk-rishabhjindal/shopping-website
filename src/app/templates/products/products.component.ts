@@ -53,7 +53,7 @@ export class ProductsComponent implements OnInit {
     this.originalProducts.forEach(element => {
       element.imageURL = './assets' + element.imageURL;
     });
-    this.products = this.service.getProducts();
+    this.products = JSON.parse(JSON.stringify(this.service.getProducts()));
     this.products.forEach(element => {
       element.imageURL = './assets' + element.imageURL;
     });

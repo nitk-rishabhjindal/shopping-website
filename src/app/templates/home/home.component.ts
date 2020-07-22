@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit {
     //     return elem.enabled === true;
     //   })
     // });
-    this.categories = this.service.getCategories();
+    this.categories = JSON.parse(JSON.stringify(this.service.getCategories()));
     this.categories = this.categories.filter(elem => {
       elem.imageUrl = './assets' + elem.imageUrl;
       return elem.enabled === true;
@@ -36,7 +36,7 @@ export class HomeComponent implements OnInit {
     //     this.showSlides(this.slideIndex);
     //   }, 0);
     // });
-    this.banners = this.service.getBanners();
+    this.banners = JSON.parse(JSON.stringify(this.service.getBanners()));
     this.banners.forEach(element => {
       element.bannerImageUrl = './assets' + element.bannerImageUrl;
     });
@@ -77,5 +77,10 @@ export class HomeComponent implements OnInit {
         this.showSlides(++this.slideIndex);
       }, 3000);
     }
+  }
+
+  ngOnDestroy() {
+    this.banners = [];
+    this.categories = [];
   }
 }
