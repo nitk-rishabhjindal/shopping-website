@@ -11,7 +11,7 @@
         </div>
         <div class="nav__container">
             <a routerLink="/home" routerLinkActive="active">
-                <img srcset="../../assets/static/images/logo.png  1x, ../../assets/static/images/logo_2x.png  2x"
+                <img srcset="./assets/static/images/logo.png  1x, ./assets/static/images/logo_2x.png  2x"
                     class="nav__container__logo" src="./assets/static/images/logo.png" alt="Sabka Bazar Logo"
                     (click)="closeCart()">
             </a>
@@ -27,7 +27,7 @@
             </app-button>
             <!-- <div class="nav__container__cart"> -->
             <app-button classList="btn-grey" (click)="toggleCart()">
-                <img src="../../assets/static/images/cart.svg" alt="cart icon" class="nav__container__cartImg"
+                <img src="./assets/static/images/cart.svg" alt="cart icon" class="nav__container__cartImg"
                     aria-hidden="true">
                 <span>{{cartItemCount}} items</span>
             </app-button>
