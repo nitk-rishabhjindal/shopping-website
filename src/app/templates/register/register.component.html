@@ -1,0 +1,154 @@
+<main>
+  <div class="form-container">
+    <div class="form-container__text">
+      <h3>SignUp</h3>
+      <p>We do not share your personal details with anyone</p>
+    </div>
+    <div class="form-container__form">
+      <form method="POST" (ngSubmit)="registerClicked()">
+        <div class="input__group">
+          <input
+            type="text"
+            required="required"
+            [formControl]="firstName"
+            name="firstName"
+            id="firstName"
+          />
+          <span class="input__bar"></span>
+          <label for="firstName">First Name</label>
+          <div *ngIf="firstName.touched || submitted">
+            <div
+              *ngIf="firstName.errors?.required"
+              aria-describedby="First Name is required"
+              aria-live="assertive"
+              class="form-error"
+            >
+              First Name is required
+            </div>
+          </div>
+        </div>
+        <div class="input__group">
+          <input
+            type="text"
+            required="required"
+            [formControl]="lastName"
+            name="lastName"
+            id="lastName"
+          />
+          <span class="input__bar"></span>
+          <label for="lastName">Last Name</label>
+          <div *ngIf="lastName.touched || submitted">
+            <div
+              *ngIf="lastName.errors?.required"
+              aria-describedby="Last Name is required"
+              aria-live="assertive"
+              class="form-error"
+            >
+              Last Name is required
+            </div>
+          </div>
+        </div>
+        <div class="input__group">
+          <input
+            type="text"
+            required="required"
+            [formControl]="email"
+            name="email"
+            id="email"
+          />
+          <span class="input__bar"></span>
+          <label for="email">Email</label>
+          <div *ngIf="email.touched || submitted">
+            <div
+              *ngIf="email.errors?.required"
+              aria-describedby="Email is required"
+              aria-live="assertive"
+              class="form-error"
+            >
+              Email is required
+            </div>
+            <div
+              *ngIf="email.errors?.email"
+              aria-describedby="Enter a valid email address"
+              aria-live="assertive"
+              class="form-error"
+            >
+              Email a valid email address
+            </div>
+          </div>
+        </div>
+        <div class="input__group">
+          <input
+            type="password"
+            required="required"
+            [formControl]="password"
+            name="password"
+            id="password"
+          />
+          <span class="input__bar"></span>
+          <label for="password">Password</label>
+          <div *ngIf="password.touched || submitted">
+            <div
+              *ngIf="password.errors?.required"
+              aria-describedby="Password is required"
+              aria-live="assertive"
+              class="form-error"
+            >
+              Password is required
+            </div>
+            <div
+              *ngIf="password.errors?.minlength"
+              aria-describedby="Password must
+                            contain 6 characters"
+              aria-live="assertive"
+              class="form-error"
+            >
+              Password must contain 6 characters
+            </div>
+            <div
+              *ngIf="password.errors?.pattern"
+              aria-describedby="Password must have a
+                            number and alphabet"
+              aria-live="assertive"
+              class="form-error"
+            >
+              Password must have a number and alphabet
+            </div>
+          </div>
+        </div>
+        <div class="input__group">
+          <input
+            type="password"
+            required="required"
+            [formControl]="confirmPassword"
+            name="confirmPassword"
+            id="confirmPassword"
+          />
+          <span class="input__bar"></span>
+          <label for="confirmPassword">Confirm Password</label>
+          <div *ngIf="confirmPassword.touched || submitted">
+            <div
+              *ngIf="confirmPassword.errors?.required"
+              aria-describedby="Confirm Password is required"
+              aria-live="assertive"
+              class="form-error"
+            >
+              Password is required
+            </div>
+            <div
+              *ngIf="misMatchPassword"
+              ria-describedby="Password and Confirm Password do not match."
+              aria-live="assertive"
+              class="form-error"
+            >
+              Password and Confirm Password do not match.
+            </div>
+          </div>
+        </div>
+        <app-button classList="btn btn-submit" buttonType="submit"
+          >Signup</app-button
+        >
+      </form>
+    </div>
+  </div>
+</main>

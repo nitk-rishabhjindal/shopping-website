@@ -1,0 +1,24 @@
+<figure class="category" *ngFor="let item of categories;index as i">
+    <ng-template [ngIf]="i%2 === 0">
+        <div class="category__image__container">
+            <img src="{{item.imageUrl}}" alt="{{item.key}}">
+        </div>
+        <div class="category__description">
+            <figcaption>{{item.name}}</figcaption>
+            <p>{{item.description}}</p>
+            <a [routerLink]="['/products',item.key]">Explore {{item.key}}
+            </a>
+        </div>
+    </ng-template>
+    <ng-template [ngIf]="i%2 !== 0">
+        <div class="category__description">
+            <figcaption>{{item.name}}</figcaption>
+            <p>{{item.description}}</p>
+            <a [routerLink]="['/products',item.key]">Explore {{item.key}}
+            </a>
+        </div>
+        <div class="category__image__container">
+            <img src="{{item.imageUrl}}" alt="{{item.key}}">
+        </div>
+    </ng-template>
+</figure>

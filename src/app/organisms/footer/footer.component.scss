@@ -1,0 +1,17 @@
+@import "../../../constants.scss";
+
+footer {
+  background-color: $main-background;
+  padding: 10px 5px;
+  p {
+    margin: auto;
+    max-width: 1140px;
+    font-size: 0.55rem;
+    @media only screen and (min-width: $medium-Screen-Size) {
+      font-size: 0.8rem;
+    }
+    @media only screen and (min-width: $large-Screen-Size) {
+      font-size: 1rem;
+    }
+  }
+}

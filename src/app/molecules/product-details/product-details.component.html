@@ -1,0 +1,24 @@
+<section class="productContent">
+    <article class="productContent__card" *ngFor="let product of products;index as i">
+        <h2>{{product.name}}</h2>
+        <div class="productContent__main">
+            <div class="productContent__image">
+                <img src="{{product.imageURL}}" alt="{{product.name}}">
+            </div>
+            <div class="productContent__description">
+                <p>{{product.description}}</p>
+                <app-button classList="btn btn-buy-now" *ngIf="isSmallScreen" (click)="AddToCart(product)">Buy Now
+                    @ Rs. {{product.price}}</app-button>
+            </div>
+        </div>
+        <app-button classList="btn btn-buy-now" *ngIf="isMediumScreen" (click)="AddToCart(product)">Buy Now @
+            Rs.
+            {{product.price}}</app-button>
+        <div class="productContent__btn" *ngIf="isLargeScreen">
+            <p> MRP Rs. {{product.price}}</p>
+            <app-button classList="btn btn-buy-now" (click)="AddToCart(product)">Buy Now
+            </app-button>
+        </div>
+        <hr size="20">
+    </article>
+</section>

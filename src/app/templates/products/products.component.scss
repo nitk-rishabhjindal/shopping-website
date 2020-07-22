@@ -1,0 +1,54 @@
+@import "../../../constants.scss";
+
+.products {
+  max-width: 1140px;
+  display: flex;
+  flex-direction: column;
+  @media only screen and (min-width: $medium-Screen-Size) {
+    flex-direction: row;
+  }
+  margin: auto;
+  aside {
+    flex: 1;
+    @media only screen and (min-width: $medium-Screen-Size) {
+      flex: 2;
+      background-color: $main-background;
+    }
+    @media only screen and (min-width: $large-Screen-Size) {
+      flex: 1.5;
+    }
+    ul {
+      list-style: none;
+      li {
+        font-size: 0.8rem;
+        margin-left: 10px;
+        border-bottom: 1px solid $side-nav-li-border;
+        cursor: pointer;
+        a {
+          display: block;
+          padding: 10px 0;
+        }
+      }
+      .aside__nav--active {
+        border-right: 2px solid $font-color-black;
+      }
+    }
+    select {
+      width: 100%;
+      background-color: $button-main;
+      color: $font-color-white;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+  }
+
+  .products__container {
+    flex: 1;
+    @media only screen and (min-width: $medium-Screen-Size) {
+      flex: 8;
+    }
+    @media only screen and (min-width: $large-Screen-Size) {
+      flex: 8.5;
+    }
+  }
+}

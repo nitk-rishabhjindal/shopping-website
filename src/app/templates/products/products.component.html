@@ -1,0 +1,21 @@
+<div class="products">
+    <aside>
+        <ul *ngIf="!isSmallScreen">
+            <ng-container *ngFor="let cat of category">
+                <li *ngIf="cat.enabled" [ngClass]="{'aside__nav--active': cat.id===selectedID}">
+                    <a *ngIf=" cat.id!==selectedID" [routerLink]="['/products',cat.key]">
+                        {{cat.name}}</a>
+                    <a *ngIf=" cat.id===selectedID" [routerLink]="['/products']">
+                        {{cat.name}}</a>
+                </li>
+            </ng-container>
+        </ul>
+        <select *ngIf="isSmallScreen" (change)="filterProducts($event.target.value)">
+            <option *ngFor="let cat of category" value="{{cat.id}}">{{cat.name}}</option>
+        </select>
+    </aside>
+    <main class="products__container">
+        <h1 class="visuallyhidden">{{categorySelected}}</h1>
+        <app-product-details (BuyNowClicked)="AddToCart($event)" [products]="products"></app-product-details>
+    </main>
+</div>

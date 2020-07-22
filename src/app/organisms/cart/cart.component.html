@@ -1,0 +1,64 @@
+<div class="modal-custom">
+    <div class="shoppingCart">
+        <div class="shoppingCart__title">
+            <div class="shoppingCart__title__heading">
+                <p>My Cart</p>
+                <span *ngIf="cartItem.length > 0">({{cartItemQuantity}} item)</span>
+            </div>
+            <div class="shoppingCart__title__close" id="close-cart" tabindex="1" (click)="closeCartClicked()">
+                <i class="fa fa-times" aria-hidden="true"></i>
+            </div>
+        </div>
+
+        <div class="shoppingCart__items--container" *ngIf="cartItem.length > 0">
+            <div class="shoppingCart__items__content--container" *ngFor="let item of cartItem;index as i ">
+                <img src="{{item.imageURL}}" alt="{{item.name}}" />
+                <div class="shoppingCart__items__block">
+                    <h4>{{item.name}}</h4>
+                    <div class="shoppingCart__items__block__description">
+                        <div class="float-left">
+                            <app-button classList="btn btn-cart-icon" tabindex="{{i+2}}" id="removeItem{{i}}"
+                                (click)="substractQuantity(i)">
+                                <i class="fa fa-minus" aria-hidden="true"></i>
+                            </app-button>
+                            <span>{{item.quantity}}</span>
+                            <app-button classList="btn btn-cart-icon" tabindex="{{i+2}}" id="addItem{{i}}"
+                                (click)="addQuantity(item)">
+                                <i class="fa fa-plus" aria-hidden="true"></i>
+                            </app-button>
+                            <span>X </span>
+                            <span>Rs. {{item.price}}</span>
+                        </div>
+                        <div class="float-right">
+                            <span>Rs.{{item.quantity * item.price}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="shoppingCart__message">
+                <img src="../../assets/static/images/lowest-price.png" alt="lowest price" />
+                <p> You won't find it cheap anywhere</p>
+            </div>
+        </div>
+
+        <div class="shoppingCart__no__items" *ngIf="cartItem.length === 0">
+            <h4>No items in your cart</h4>
+            <p>Your favourite items are just a click away</p>
+        </div>
+
+        <div class="shoppingCart__checkout" *ngIf="cartItem.length > 0">
+            <p>Promo code can be applied on the payment page</p>
+            <app-button classList="btn btn-cart btn-cart-checkout" tabindex="0" id="shoppingCart-checkout"
+                (click)="closeCartClicked()">
+                <span class="float-left">Proceed to Checkout</span>
+                <span class="float-right">Rs.{{totalPrice}}</span>
+            </app-button>
+        </div>
+        <div class="shoppingCart__checkout" *ngIf="cartItem.length === 0">
+            <app-button classList="btn btn-cart btn-cart-startShopping" tabindex="0" id="shoppingCart-checkout"
+                (click)="closeCartClicked()">
+                <span class="d-inline-block">Start Shopping</span>
+            </app-button>
+        </div>
+    </div>
+</div>

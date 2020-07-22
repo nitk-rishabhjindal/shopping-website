@@ -1,0 +1,98 @@
+@import "../../../constants.scss";
+
+.btn-grey {
+  background-color: $main-background;
+  height: 100%;
+  width: 100px;
+  border: 0;
+  @media only screen and (min-width: $medium-Screen-Size) {
+    width: 125px;
+  }
+}
+
+.btn-transparent {
+  background-color: transparent;
+  border: transparent;
+}
+
+.btn-slideshow__dot {
+  height: 6px;
+  width: 6px;
+  margin: 0 8px;
+  background-color: $input-color;
+  border-radius: 50%;
+  transition: background-color 0.6s ease;
+  border: transparent;
+  &:hover {
+    background-color: $carousel-button;
+  }
+  @media only screen and (min-width: $medium-Screen-Size) {
+    height: 9px;
+    width: 9px;
+  }
+
+  &.active {
+    background-color: $background-color-black;
+  }
+}
+
+.btn {
+  background-color: $button-main;
+  padding: 5px 0;
+  border: 0;
+  border-radius: 2px;
+  color: $button-main-color;
+  cursor: pointer;
+  font-size: 70%;
+  @media only screen and (min-width: $medium-Screen-Size) {
+    font-size: 1rem;
+  }
+  &:hover {
+    background-color: $button-main-hover;
+  }
+  &.btn-main {
+    width: 65%;
+    margin-bottom: 1rem;
+    @media only screen and (min-width: $medium-Screen-Size) {
+      width: 50%;
+      font-size: 1rem;
+    }
+    @media only screen and (min-width: $large-Screen-Size) {
+      width: 40%;
+    }
+  }
+  &.btn-buy-now {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  &.btn-submit {
+    width: 90%;
+    @media only screen and (min-width: $medium-Screen-Size) {
+      width: 75%;
+    }
+    @media only screen and (min-width: $large-Screen-Size) {
+      width: 60%;
+    }
+  }
+  &.btn-cart {
+    width: 90%;
+    &.btn-cart-checkout {
+      margin-bottom: 15px;
+    }
+    &.btn-cart-startShopping {
+      margin: 15px 0;
+    }
+  }
+  &.btn-cart-icon {
+    padding: 0px 5px;
+    border-radius: 50%;
+    font-size: 0.8rem;
+  }
+  &--white {
+    color: $button-main-color;
+    padding: 4px 8px;
+    @media only screen and (min-width: $medium-Screen-Size) {
+      padding: 10px 15px;
+    }
+  }
+}

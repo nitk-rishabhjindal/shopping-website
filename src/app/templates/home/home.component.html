@@ -1,0 +1,19 @@
+<main>
+    <section class="slideshow__container">
+        <div class="mySlides slideshow__container__fade" *ngFor="let banner of banners;index as i">
+            <img src="{{banner.bannerImageUrl}}" alt="{{banner.bannerImageAlt}}" style="width:100%">
+        </div>
+        <app-button class="slideshow__container__prev" classList="btn-transparent btn--white" (click)="plusSlides(-1)">
+            PREV
+        </app-button>
+        <app-button class="slideshow__container__next" classList="btn-transparent btn--white" (click)="plusSlides(1)">
+            NEXT
+        </app-button>
+        <div class="slideshow__dot__container">
+            <app-button classList="btn-slideshow__dot" (click)="currentSlide(i+1)"
+                *ngFor="let banner of banners;index as i">
+            </app-button>
+        </div>
+    </section>
+    <app-categories [categories]="categories"></app-categories>
+</main>

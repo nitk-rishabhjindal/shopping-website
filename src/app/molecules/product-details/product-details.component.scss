@@ -1,0 +1,80 @@
+@import "../../../constants.scss";
+
+.productContent {
+  display: flex;
+  flex-wrap: wrap;
+  @media only screen and (min-width: $large-Screen-Size) {
+    padding: 10px 10px;
+  }
+  &__card {
+    width: 100%;
+    padding: 10px;
+    @media only screen and (min-width: $medium-Screen-Size) {
+      width: 50%;
+      padding: 5px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 11px 1px 17px -24px rgba(0, 0, 0, 0.75);
+    }
+    @media only screen and (min-width: $large-Screen-Size) {
+      width: 25%;
+      padding: 15px 10px;
+    }
+    h2 {
+      font-size: 1.2rem;
+      @media only screen and (min-width: $medium-Screen-Size) {
+        min-height: 60px;
+        font-size: 1rem;
+      }
+    }
+    hr {
+      margin-top: 0px;
+    }
+  }
+  &__main {
+    display: flex;
+    flex: 1;
+    @media only screen and (min-width: $large-Screen-Size) {
+      flex-direction: column;
+    }
+  }
+  &__image {
+    flex: 1;
+    img {
+      max-width: 100%;
+    }
+  }
+  &__description {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    p {
+      background-color: $main-background;
+      padding: 5px;
+      margin-bottom: 5px;
+      font-size: 0.7rem;
+      flex: 1;
+      @media only screen and (min-width: $large-Screen-Size) {
+        font-size: 0.8rem;
+      }
+    }
+    @media only screen and (min-width: $medium-Screen-Size) {
+      background-color: $main-background;
+      margin-bottom: 5px;
+    }
+    @media only screen and (min-width: $large-Screen-Size) {
+    }
+  }
+  &__btn {
+    display: flex;
+    p {
+      padding: 7px;
+      flex: 3;
+      margin-bottom: 0;
+    }
+    app-button {
+      flex: 2;
+    }
+  }
+}
