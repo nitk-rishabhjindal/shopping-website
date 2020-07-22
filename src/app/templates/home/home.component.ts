@@ -38,7 +38,7 @@ export class HomeComponent implements OnInit {
     // });
     this.banners = this.service.getBanners();
     this.banners.forEach(element => {
-      element.bannerImageUrl = '../../assets' + element.bannerImageUrl;
+      element.bannerImageUrl = './assets' + element.bannerImageUrl;
     });
     setTimeout(() => {
       this.showSlides(this.slideIndex);
