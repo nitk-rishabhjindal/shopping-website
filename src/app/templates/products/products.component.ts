@@ -24,29 +24,49 @@ export class ProductsComponent implements OnInit {
   isMediumScreen = false;
   isLargeScreen = false;
   ngOnInit() {
-    this.service.getCategories().subscribe(data => {
-      this.category = data;
-    })
-    this.service.getProducts().subscribe(data => {
-      this.originalProducts = JSON.parse(JSON.stringify(data));
-      this.originalProducts.forEach(element => {
-        element.imageURL = '../../assets' + element.imageURL;
-      });
-      this.products = data;
-      this.products.forEach(element => {
-        element.imageURL = '../../assets' + element.imageURL;
-      });
-      this.route.params.subscribe(params => {
-        if (params['id'] === '' || params['id'] === undefined) {
-          this.products = JSON.parse(JSON.stringify(this.originalProducts));
-          this.categorySelected = 'All Products'
-        } else {
-          let obj = this.category.find(cat => cat.key === params['id']);
-          this.filterProducts(obj.id);
-          this.categorySelected = obj.name;
-        }
-      });
-    })
+    // this.service.getCategories().subscribe(data => {
+    //   this.category = data;
+    // })
+    this.category = this.service.getCategories();
+
+    // this.service.getProducts().subscribe(data => {
+    //   this.originalProducts = JSON.parse(JSON.stringify(data));
+    //   this.originalProducts.forEach(element => {
+    //     element.imageURL = '../../assets' + element.imageURL;
+    //   });
+    //   this.products = data;
+    //   this.products.forEach(element => {
+    //     element.imageURL = '../../assets' + element.imageURL;
+    //   });
+    //   this.route.params.subscribe(params => {
+    //     if (params['id'] === '' || params['id'] === undefined) {
+    //       this.products = JSON.parse(JSON.stringify(this.originalProducts));
+    //       this.categorySelected = 'All Products'
+    //     } else {
+    //       let obj = this.category.find(cat => cat.key === params['id']);
+    //       this.filterProducts(obj.id);
+    //       this.categorySelected = obj.name;
+    //     }
+    //   });
+    // })
+    this.originalProducts = JSON.parse(JSON.stringify(this.service.getProducts()));
+    this.originalProducts.forEach(element => {
+      element.imageURL = '../../assets' + element.imageURL;
+    });
+    this.products = this.service.getProducts();
+    this.products.forEach(element => {
+      element.imageURL = '../../assets' + element.imageURL;
+    });
+    this.route.params.subscribe(params => {
+      if (params['id'] === '' || params['id'] === undefined) {
+        this.products = JSON.parse(JSON.stringify(this.originalProducts));
+        this.categorySelected = 'All Products'
+      } else {
+        let obj = this.category.find(cat => cat.key === params['id']);
+        this.filterProducts(obj.id);
+        this.categorySelected = obj.name;
+      }
+    });
     this.checkScreenSize(window.innerWidth);
   }
 

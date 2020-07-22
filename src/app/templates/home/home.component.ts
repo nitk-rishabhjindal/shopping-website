@@ -14,25 +14,35 @@ export class HomeComponent implements OnInit {
   banners: any;
   timeOut: any;
   ngOnInit() {
-    this.service.getCategories().subscribe(data => {
-      this.categories = data;
+    // this.service.getCategories().subscribe(data => {
+    //   this.categories = data;
 
-      this.categories = this.categories.filter(elem => {
-        elem.imageUrl = '../../assets' + elem.imageUrl;
-        return elem.enabled === true;
-      })
+    //   this.categories = this.categories.filter(elem => {
+    //     elem.imageUrl = '../../assets' + elem.imageUrl;
+    //     return elem.enabled === true;
+    //   })
+    // });
+    this.categories = this.service.getCategories();
+    this.categories = this.categories.filter(elem => {
+      elem.imageUrl = '../../assets' + elem.imageUrl;
+      return elem.enabled === true;
+    })
+    // this.service.getBanners().subscribe(data => {
+    //   this.banners = data;
+    //   this.banners.forEach(element => {
+    //     element.bannerImageUrl = '../../assets' + element.bannerImageUrl;
+    //   });
+    //   setTimeout(() => {
+    //     this.showSlides(this.slideIndex);
+    //   }, 0);
+    // });
+    this.banners = this.service.getBanners();
+    this.banners.forEach(element => {
+      element.bannerImageUrl = '../../assets' + element.bannerImageUrl;
     });
-
-    this.service.getBanners().subscribe(data => {
-      this.banners = data;
-      this.banners.forEach(element => {
-        element.bannerImageUrl = '../../assets' + element.bannerImageUrl;
-      });
-      setTimeout(() => {
-        this.showSlides(this.slideIndex);
-      }, 0);
-    });
-
+    setTimeout(() => {
+      this.showSlides(this.slideIndex);
+    }, 0);
   }
 
   plusSlides(n) {
