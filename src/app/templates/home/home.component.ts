@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit {
     // });
     this.categories = this.service.getCategories();
     this.categories = this.categories.filter(elem => {
-      elem.imageUrl = '../../assets' + elem.imageUrl;
+      elem.imageUrl = './assets' + elem.imageUrl;
       return elem.enabled === true;
     })
     // this.service.getBanners().subscribe(data => {
